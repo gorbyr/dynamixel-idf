@@ -25,12 +25,17 @@ typedef signed short int    int16_t;
 typedef signed int          int32_t;
 #endif
 
+#ifndef ESP_PLATFORM
 typedef unsigned char       uint8_t;
 typedef unsigned short int  uint16_t;
 typedef unsigned int        uint32_t;
+#endif
 
-#define True                1
-#define False               0
+#include <stdint.h>
+#include <stdbool.h>
+
+#define True                (true)
+#define False               (false)
 
 #define NOT_USED_ID         255
 

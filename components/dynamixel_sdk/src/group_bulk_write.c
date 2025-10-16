@@ -25,6 +25,8 @@
 #elif defined(_WIN32) || defined(_WIN64)
 #define WINDLLEXPORT
 #include "group_bulk_write.h"
+#elif defined(ESP_PLATFORM)
+#include "group_bulk_write.h"
 #endif
 
 typedef struct

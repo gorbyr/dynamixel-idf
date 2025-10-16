@@ -25,6 +25,8 @@
 #elif defined(_WIN32) || defined(_WIN64)
 #define WINDLLEXPORT
 #include "group_sync_write.h"
+#elif defined(ESP_PLATFORM)
+#include "group_sync_write.h"
 #endif
 
 typedef struct

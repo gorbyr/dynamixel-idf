@@ -29,6 +29,8 @@
   #else
   #define WINDECLSPEC __declspec(dllimport)
   #endif
+#elif defined(ESP_PLATFORM)
+#define WINDECLSPEC
 #endif
 
 #ifdef __GNUC__
@@ -44,8 +46,8 @@
 
 static const int DEFAULT_BAUDRATE = 57600;
 
-int     g_used_port_num;
-uint8_t    *g_is_using;
+extern int     g_used_port_num;
+extern uint8_t    *g_is_using;
 
 WINDECLSPEC int     portHandler             (const char *port_name);
 

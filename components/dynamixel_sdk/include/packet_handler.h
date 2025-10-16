@@ -70,16 +70,29 @@
 
 typedef struct
 {
-  uint8_t     *data_write;
-  uint8_t     *data_read;
-  uint8_t     *tx_packet;
-  uint8_t     *rx_packet;
-  uint8_t     error;
-  int         communication_result;
-  uint8_t     *broadcast_ping_id_list;
-}PacketData;
+  uint8_t *data_write;
+  uint8_t *data_read;
+  uint8_t *tx_packet;
+  uint8_t *rx_packet;
+  uint8_t error;
+  int communication_result;
+  uint8_t *broadcast_ping_id_list;
+} PacketData;
 
-PacketData *packetData;
+// #define PACKET_DATA_MAX_LEN (1024)
+
+// typedef struct
+// {
+//   uint8_t data_write[PACKET_DATA_MAX_LEN];
+//   uint8_t data_read[PACKET_DATA_MAX_LEN];
+//   uint8_t tx_packet[PACKET_DATA_MAX_LEN];
+//   uint8_t rx_packet[PACKET_DATA_MAX_LEN];
+//   uint8_t error;
+//   int communication_result;
+//   uint8_t *broadcast_ping_id_list;
+// } PacketData;
+
+extern PacketData *packetData;
 
 WINDECLSPEC void        packetHandler       ();
 

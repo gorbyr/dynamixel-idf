@@ -31,16 +31,23 @@
 #include "packet_handler.h"
 #include "protocol1_packet_handler.h"
 #include "protocol2_packet_handler.h"
+#elif defined(ESP_PLATFORM)
+#include "packet_handler.h"
+#include "protocol1_packet_handler.h"
+#include "protocol2_packet_handler.h"
 #endif
+
+PacketData *packetData;
 
 void packetHandler()
 {
   int port_num;
 
-  if (packetData == NULL)
-    packetData = (PacketData*)malloc(1 * sizeof(PacketData));
+  // if (packetData == NULL)
+  //   packetData = (PacketData*)malloc(1 * sizeof(PacketData));
 
-  packetData = (PacketData*)realloc(packetData, g_used_port_num * sizeof(PacketData));
+  packetData = (PacketData*) malloc(g_used_port_num * sizeof(PacketData) );
+  g_is_using = (uint8_t *) malloc(g_used_port_num * sizeof(uint8_t) );
 
   for (port_num = 0; port_num < g_used_port_num; port_num++)
   {
@@ -50,6 +57,7 @@ void packetHandler()
     packetData[port_num].rx_packet = (uint8_t *)calloc(1, sizeof(uint8_t));
     packetData[port_num].error = 0;
     packetData[port_num].communication_result = 0;
+    g_is_using[port_num] = False;
   }
 }
 

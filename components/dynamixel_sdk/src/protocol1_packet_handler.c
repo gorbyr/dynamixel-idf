@@ -23,6 +23,8 @@
 #elif defined(_WIN32) || defined(_WIN64)
 #define WINDLLEXPORT
 #include "protocol1_packet_handler.h"
+#elif defined(ESP_PLATFORM)
+#include "protocol1_packet_handler.h"
 #endif
 
 #include <string.h>
@@ -701,7 +703,7 @@ void regWriteTxOnly1(int port_num, uint8_t id, uint16_t address, uint16_t length
   }
 
   txPacket1(port_num);
-  
+
   g_is_using[port_num] = False;
 }
 

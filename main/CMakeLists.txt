@@ -1,4 +1,4 @@
-idf_component_register(SRCS "sync_write.c"
-                    INCLUDE_DIRS "." REQUIRES dynamixel_sdk_esp)
+idf_component_register(SRCS "main.c"
+                    INCLUDE_DIRS ".")
 
 target_compile_options(${COMPONENT_LIB} PRIVATE -Wno-error=format)
