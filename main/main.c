@@ -56,8 +56,8 @@
 
 #define TORQUE_ENABLE                   1                   // Value for enabling the torque
 #define TORQUE_DISABLE                  0                   // Value for disabling the torque
-#define DXL_MINIMUM_POSITION_VALUE      1606//341                 // Dynamixel will rotate between this value
-#define DXL_MAXIMUM_POSITION_VALUE      2480//3712                // and this value (note that the Dynamixel would not move when the position value is out of movable range. Check e-manual about the range of the Dynamixel you use.)
+#define DXL_MINIMUM_POSITION_VALUE      0                   // Dynamixel will rotate between this value
+#define DXL_MAXIMUM_POSITION_VALUE      4096                // and this value (note that the Dynamixel would not move when the position value is out of movable range. Check e-manual about the range of the Dynamixel you use.)
 #define DXL_MOVING_STATUS_THRESHOLD     50                  // Dynamixel moving status threshold
 
 // #define ESC_ASCII_VALUE                 0x1b
@@ -173,9 +173,6 @@ int main()
     // printf("Press any key to continue! (or press ESC to quit!)\n");
     // if (getch() == ESC_ASCII_VALUE)
     //   break;
-
-    write4ByteTxRx(port_num, PROTOCOL_VERSION, DXL_ID, 108,  50);
-    write4ByteTxRx(port_num, PROTOCOL_VERSION, DXL_ID, 112, 300); // 38 or 213
 
     // Write goal position
     write4ByteTxRx(port_num, PROTOCOL_VERSION, DXL_ID, ADDR_PRO_GOAL_POSITION, dxl_goal_position[index]);
